@@ -1,4 +1,6 @@
-﻿namespace TwitchLib.Client.Models
+﻿using TwitchLib.Client.Models.Annotation;
+
+namespace TwitchLib.Client.Models
 {
     /// <summary>Class representing cheer badge.</summary>
     public class CheerBadge
@@ -18,13 +20,7 @@
 
         private Enums.BadgeColor GetColor(int cheerAmount)
         {
-            if (cheerAmount >= 10000)
-                return Enums.BadgeColor.Red;
-            if (cheerAmount >= 5000)
-                return Enums.BadgeColor.Blue;
-            if (cheerAmount >= 1000)
-                return Enums.BadgeColor.Green;
-            return cheerAmount >= 100 ? Enums.BadgeColor.Purple : Enums.BadgeColor.Gray;
+            return cheerAmount.GetFromInterval<Enums.BadgeColor>();
         }
     }
 }

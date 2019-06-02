@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using TwitchLib.Client.Enums;
+using TwitchLib.Client.Models.Annotation;
 using TwitchLib.Client.Models.Internal;
 
 namespace TwitchLib.Client.Models
@@ -153,24 +154,7 @@ namespace TwitchLib.Client.Models
                         UserId = tagValue;
                         break;
                     case Tags.UserType:
-                        switch (tagValue)
-                        {
-                            case "mod":
-                                UserType = UserType.Moderator;
-                                break;
-                            case "global_mod":
-                                UserType = UserType.GlobalModerator;
-                                break;
-                            case "admin":
-                                UserType = UserType.Admin;
-                                break;
-                            case "staff":
-                                UserType = UserType.Staff;
-                                break;
-                            default:
-                                UserType = UserType.Viewer;
-                                break;
-                        }
+                        UserType = tagValue.GetFromMap<UserType>();
                         break;
                 }
             }
