@@ -6,7 +6,7 @@ namespace TwitchLib.Client.Enums
     public enum UserType : byte
     {
         /// <summary>The standard user-type representing a standard viewer.</summary>
-        Viewer,
+        Viewer = 0,
 
         /// <summary>User-type representing viewers with channel-specific moderation powers.</summary>
         [Map("mod")]
