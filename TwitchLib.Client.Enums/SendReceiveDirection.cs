@@ -5,6 +5,7 @@
     {
         /// <summary>Used for logging, direction of data.</summary>
         Sent,
+
         /// <summary>Used for logging, direction of data.</summary>
         Received
     }

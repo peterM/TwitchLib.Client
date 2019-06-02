@@ -5,6 +5,7 @@
     {
         /// <summary>Throttle based on message being too short.</summary>
         MessageTooShort = 0,
+
         /// <summary>Throttle based on message being too long.</summary>
         MessageTooLong = 1
     }
