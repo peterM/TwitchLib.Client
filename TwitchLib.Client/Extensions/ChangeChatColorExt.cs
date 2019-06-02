@@ -27,7 +27,7 @@ namespace TwitchLib.Client.Extensions
         /// <param name="color">Enum representing available chat preset colors.</param>
         public static void ChangeChatColor(this ITwitchClient client, string channel, Enums.ChatColorPresets color)
         {
-            client.SendMessage(channel, $".color {color}");
+            ChangeChatColor(client, new JoinedChannel(channel), color);
         }
     }
 }
