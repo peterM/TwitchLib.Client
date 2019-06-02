@@ -19,6 +19,16 @@ namespace TwitchLib.Client.Extensions
         /// <exception cref="ArgumentOutOfRangeException">length - null</exception>
         public static void StartCommercial(this ITwitchClient client, JoinedChannel channel, Enums.CommercialLength length)
         {
+            if (client == null)
+            {
+                throw new ArgumentNullException(nameof(client));
+            }
+
+            if (channel == null)
+            {
+                throw new ArgumentNullException(nameof(channel));
+            }
+
             client.SendMessage(channel, $".commercial {(int)length}");
         }
 
@@ -31,6 +41,11 @@ namespace TwitchLib.Client.Extensions
         /// <exception cref="ArgumentOutOfRangeException">length - null</exception>
         public static void StartCommercial(this ITwitchClient client, string channel, Enums.CommercialLength length)
         {
+            if (string.IsNullOrWhiteSpace(channel))
+            {
+                throw new ArgumentNullException(nameof(channel));
+            }
+
             StartCommercial(client, new JoinedChannel(channel), length);
         }
     }
